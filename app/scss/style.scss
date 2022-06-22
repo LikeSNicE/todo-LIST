@@ -1,0 +1,102 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'global';
+@import 'animate';
+
+@keyframes gradient{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+     background-position: 0 50%;
+  }
+}
+
+.main-title{
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+  @extend %staatliches-400;
+}
+
+.whatican{
+  margin-left: 20px;
+  font-size: 28px;
+}
+
+.abilities-list{
+  font-style: italic;
+  margin: 20px 0 0 20px;
+}
+
+.wrap{
+ margin: 100px 0 0 20px;
+ width: 500px;
+}
+
+#input{
+  width: 55%;
+  height: 50px;
+}
+
+#btn{
+  width: 40%;
+}
+
+.result{
+  margin-bottom: 50px;
+}
+
+.btn{
+  background-color: red;
+  border: none;
+  color: #fff;
+  margin-left: 15px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+
+
+.li{
+  padding: 4px 8px;
+  background-color: #eddfff;
+  border: 1px solid brown;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.li-active{
+  color: #555;
+  text-decoration: line-through;
+  background-color: #000;
+}
+
+.li-active .btn{
+  color: #555;
+  text-decoration: line-through;
+  background-color: #000;
+}
+
+.total{
+  font-size: 24px;
+  margin: 20px 0 0 20px;
+}
+
+.total-count{
+  margin-left: 20px;
+  font-size: 24px;
+}
+@import 'media';
