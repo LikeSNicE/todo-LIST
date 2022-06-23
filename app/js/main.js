@@ -1,8 +1,25 @@
-const input = document.querySelector('.input'),
+
+
+const input = document.querySelector('#input'),
   btn = document.querySelector('.btn'),
   result = document.querySelector('.result'),
   total = document.querySelector('.total');
-let i = 0;
+  let i = 0;
+
+  let tasks = [];
+  !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
+
+  let todoImemElems = [];
+
+  function Task(description){
+    this.description = description;
+  }
+
+  // update localstorage 
+
+  const updateLocal = () => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  };
 
 // animation
 function animation({
@@ -16,6 +33,10 @@ function animation({
 
 // add event 
 btn.addEventListener('click', () => {
+  tasks.push(new Task(input.value));
+  updateLocal();
+
+  console.log(tasks);
   if (input.value === "") {
     return;
   }
@@ -23,6 +44,13 @@ btn.addEventListener('click', () => {
   createDeleteElements(input.value);
   input.value = '';
 });
+
+
+const completeTask = index => {
+  if(tasks[index].description){
+
+  }
+};
 
 // create and deleme elem todo
 function createDeleteElements(value) {
@@ -47,9 +75,15 @@ function createDeleteElements(value) {
 
   // remove todo
   btn.addEventListener('click', (e) => {
-    i--;
-    total.textContent = i;
-    result.removeChild(li);
+    animation({
+      elem: li
+    });
+    setTimeout(() => {
+       i--;
+       total.textContent = i;
+       result.removeChild(li);
+       updateLocal();
+    }, 350);
   });
 
   // toggle class Active 
