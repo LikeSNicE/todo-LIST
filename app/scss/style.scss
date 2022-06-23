@@ -23,6 +23,12 @@
   @extend %staatliches-400;
 }
 
+#h2tasktoday{
+  text-align: left; 
+  margin: 40px 0;
+  font-size: 50px;
+}
+
 .whatican{
   margin-left: 20px;
   font-size: 28px;
@@ -34,17 +40,18 @@
 }
 
 .wrap{
- margin: 100px 0 0 20px;
- width: 500px;
+ width: 1000px;
+ margin: 100px auto 20px;
 }
 
 #input{
-  width: 55%;
+  width: 70%;
   height: 50px;
+  padding: 0 10px;
 }
 
 #btn{
-  width: 40%;
+  width: 25%;
 }
 
 .result{
@@ -76,18 +83,19 @@
   z-index: 5;
   width: 100%;
   text-transform: capitalize;
+  transition: .6s all;
 }
 
 .li-active{
   color: #555;
   text-decoration: line-through;
   background-color: #000;
-}
-
-.li-active .btn{
-  color: #555;
-  text-decoration: line-through;
-  background-color: #000;
+  transition: .6s all;
+  & .btn{
+      color: #555;
+      text-decoration: line-through;
+      background-color: #000;
+  }
 }
 
 .total{
@@ -95,8 +103,12 @@
   margin: 20px 0 0 20px;
 }
 
-.total-count{
-  margin-left: 20px;
-  font-size: 24px;
+.total-block{
+  margin: 0 auto;
+  width: 1000px;
+  &-count{
+    font-size: 24px;
+  }
 }
+
 @import 'media';

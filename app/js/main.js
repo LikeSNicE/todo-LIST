@@ -5,24 +5,21 @@ const input = document.querySelector('.input'),
 let i = 0;
 
 // animation
-// function animation({
-//   elem = '',
-//   animationClass = 'animation',
-//   nameOfAnimation = 'fadeIn'
-// } = {}){
-//   elem.classList.add(animationClass,nameOfAnimation);
-// }
-
-function animation(elem = '', animationClass = 'animation',
-  nameOfAnimation = 'fadeIn') {
-    elem.classList.add(animationClass, nameOfAnimation);
+function animation({
+  elem = '',
+  animationClass = 'animated',
+  nameOfAnimation = 'fadeIn'
+} = {}){
+  elem.classList.add(animationClass,nameOfAnimation);
 }
+
 
 // add event 
 btn.addEventListener('click', () => {
   if (input.value === "") {
     return;
   }
+
   createDeleteElements(input.value);
   input.value = '';
 });
@@ -34,30 +31,19 @@ function createDeleteElements(value) {
   const li = document.createElement('li');
   const btn = document.createElement('button');
 
-  // const btnChangeValue = document.createElement('button');
 
-  li.classList.add('animated', 'fadeIn');
+  li.style.cursor = "pointer";
+  animation({
+    elem: li,
+  });
+
   li.classList.add('li');
   li.textContent = value;
 
-  // animation({
-  //   elem: btn,
-  //   nameOfAnimation: 'fadeIn',
-  //   animationClass: ''
-  // });
-  animation(btn,'animated','fadeIn');
   btn.classList.add('btn');
   btn.textContent = 'Убрать';
   li.appendChild(btn);
 
-  // change todo 
-  // btnChangeValue.classList.add('btn');
-  // btnChangeValue.textContent = 'Изменить';
-  // li.appendChild(btnChangeValue);
-
-  // btnChangeValue.addEventListener('input', (e) => {
-
-  // });
 
   // remove todo
   btn.addEventListener('click', (e) => {
@@ -71,6 +57,7 @@ function createDeleteElements(value) {
     li.classList.toggle('li-active');
   });
 
+  animation({elem: total,});
   total.textContent = i;
   result.appendChild(li);
 }
