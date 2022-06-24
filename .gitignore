@@ -7,6 +7,9 @@ npm-debug.*
 
 dist/
 node_modules/
-package-lock.json
-package.json
+.package-lock.json
+.package.json
 app/css/*
+.jshintrc
+.gulpfile.js
+.gitignore
